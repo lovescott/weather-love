@@ -9,5 +9,6 @@
 import Foundation
 
 protocol WeatherViewModelType {
-    var weatherConditions: WeatherConditions{ get}
+    //TODO: Refactor ?
+    var weatherCondition: WeatherCondition?{ get}
 }

@@ -9,9 +9,19 @@
 import Foundation
 
 final class WeatherViewModel: WeatherViewModelType {
-    var weatherConditions: WeatherConditions
+    //TODO: Check this in refactor
+    var weatherCondition: WeatherCondition?
     
     init(){
-        weatherConditions = WeatherConditions(temp: 80)
+        downloadWeatherCondition()
+    }
+    
+    func downloadWeatherCondition() {
+        Webservice().load(resource: WeatherConditionResource.get){[weak self] result in
+            guard let result = result, let `self` = self else {
+                return
+            }
+            self.weatherCondition = result
+        }
     }
 }
