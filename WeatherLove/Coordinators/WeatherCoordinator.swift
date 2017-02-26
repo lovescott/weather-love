@@ -11,9 +11,21 @@ import UIKit
 final class WeatherCoordinator: Coordinator {
     
     func start() {
-        let viewModel = WeatherViewModel()
+        let viewModel = WeatherViewModel(delegate: self)
         let viewController = WeatherViewController(viewModel: viewModel)
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    //TODO: Build Stop for Deinit
+}
+
+extension WeatherCoordinator: WeatherViewControllerDelegate {
+    func changeWeatherCity(viewModel: CitySearchViewModel){
+        let rootVc = navigationController?.childViewControllers[0]
+        let vc = CitySearchViewController(viewModel: viewModel)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .overCurrentContext
+        rootVc?.present(nc, animated: true, completion: nil)
     }
 }

@@ -10,12 +10,23 @@ import Foundation
 
 final class WeatherViewModel: WeatherViewModelType {
     //TODO: Check this in refactor
+    private weak var delegate: WeatherViewControllerDelegate?
     var weatherCondition: WeatherCondition?
+    var selectedCity: City?{
+        didSet{
+            downloadWeatherCondition()
+        }
+    }
     
-    init(){
+    init(delegate: WeatherViewControllerDelegate?){
+        self.delegate = delegate
         downloadWeatherCondition()
     }
     
+    func updateCity (){
+        let cityVm = CitySearchViewModel(weatherVM: self)
+        delegate?.changeWeatherCity(viewModel:cityVm)
+    }
     func downloadWeatherCondition() {
         Webservice().load(resource: WeatherConditionResource.get){[weak self] result in
             guard let result = result, let `self` = self else {

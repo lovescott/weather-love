@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol WeatherViewControllerDelegate: class {
+    func changeWeatherCity(viewModel: CitySearchViewModel)
+}
+
 class WeatherViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
@@ -23,10 +27,6 @@ class WeatherViewController: UIViewController {
     }
     
     @IBAction func onSearch(_ sender: Any) {
-        print("onSearch pressed")
-        let vc = CitySearchViewController(style: .plain)
-        let nc = UINavigationController(rootViewController: vc)
-        nc.modalPresentationStyle = .overCurrentContext
-        self.present(nc, animated: true, completion: nil)
+        viewModel.updateCity()
     }
 }
