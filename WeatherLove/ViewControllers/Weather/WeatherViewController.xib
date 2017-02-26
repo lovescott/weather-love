@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController" customModule="WeatherLove" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="3Wr-JK-Yu6" id="uNu-SW-bS4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,17 +19,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Wr-JK-Yu6">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfF-HY-mPq">
+                    <rect key="frame" x="313" y="318" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="onSearch:" destination="-1" eventType="touchUpInside" id="V15-Pa-S2I"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="3Wr-JK-Yu6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DT9-dw-fza"/>
-                <constraint firstItem="3Wr-JK-Yu6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="X0i-Sa-dqN"/>
-                <constraint firstAttribute="bottom" secondItem="3Wr-JK-Yu6" secondAttribute="bottom" id="YVH-fL-wAH"/>
-                <constraint firstAttribute="trailing" secondItem="3Wr-JK-Yu6" secondAttribute="trailing" id="ZtK-41-w3Y"/>
+                <constraint firstItem="GfF-HY-mPq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ygo-6Z-VJs"/>
+                <constraint firstAttribute="trailing" secondItem="GfF-HY-mPq" secondAttribute="trailing" constant="16" id="Znx-Zc-acj"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>

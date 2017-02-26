@@ -20,12 +20,13 @@ class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func onSearch(_ sender: Any) {
+        print("onSearch pressed")
+        let vc = CitySearchViewController(style: .plain)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .overCurrentContext
+        self.present(nc, animated: true, completion: nil)
     }
 }
