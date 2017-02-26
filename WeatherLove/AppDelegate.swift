@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
+        //TODO: Make sure this is working
+        UIApplication.shared.statusBarStyle = .lightContent
         let navigationController = UINavigationController()
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
         window?.rootViewController = navigationController
         let coordinator = AppCoordinator(navigationController: navigationController)
         coordinator.start()
