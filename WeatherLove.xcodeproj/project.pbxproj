@@ -28,6 +28,8 @@
 		EBDCB4D11E62602F003FE163 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCB4D01E62602F003FE163 /* CityCell.swift */; };
 		EBDCB4D61E626D5A003FE163 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCB4D51E626D5A003FE163 /* City.swift */; };
 		EBDCB4D81E626ECE003FE163 /* CitySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCB4D71E626ECE003FE163 /* CitySearchViewModel.swift */; };
+		EBDCB4DB1E628B8E003FE163 /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = EBDCB4DA1E628B8E003FE163 /* city.json */; };
+		EBE006EA1E6290BD00A72661 /* CityResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE006E91E6290BD00A72661 /* CityResource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		EBDCB4D01E62602F003FE163 /* CityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityCell.swift; path = ViewControllers/CitySearch/Views/CityCell.swift; sourceTree = "<group>"; };
 		EBDCB4D51E626D5A003FE163 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		EBDCB4D71E626ECE003FE163 /* CitySearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySearchViewModel.swift; path = ViewControllers/CitySearch/ViewModels/CitySearchViewModel.swift; sourceTree = "<group>"; };
+		EBDCB4DA1E628B8E003FE163 /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = city.json; path = Networking/Data/city.json; sourceTree = "<group>"; };
+		EBE006E91E6290BD00A72661 /* CityResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityResource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 			children = (
 				EB596C5B1E62103900E84EAB /* Resource.swift */,
 				EB596C601E6217F200E84EAB /* WeatherConditionResource.swift */,
+				EBE006E91E6290BD00A72661 /* CityResource.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 		EBDCB4D91E628A78003FE163 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EBDCB4DA1E628B8E003FE163 /* city.json */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBAECE7A1E61E5F90005FED5 /* LaunchScreen.storyboard in Resources */,
+				EBDCB4DB1E628B8E003FE163 /* city.json in Resources */,
 				EBAECEAB1E6204D40005FED5 /* WeatherViewController.xib in Resources */,
 				EBAECE771E61E5F90005FED5 /* Assets.xcassets in Resources */,
 				EB6EB8F91E6243B1008581ED /* CitySearchViewController.xib in Resources */,
@@ -357,6 +364,7 @@
 				EBAECE951E61FDBC0005FED5 /* AppCoordinator.swift in Sources */,
 				EBAECEA11E6201810005FED5 /* WeatherCondition.swift in Sources */,
 				EB596C5C1E62103900E84EAB /* Resource.swift in Sources */,
+				EBE006EA1E6290BD00A72661 /* CityResource.swift in Sources */,
 				EB596C5E1E6213A200E84EAB /* Keys.swift in Sources */,
 				EBAECEA31E6201F40005FED5 /* WeatherViewModel.swift in Sources */,
 				EBAECE911E61FD2C0005FED5 /* Coordinator.swift in Sources */,

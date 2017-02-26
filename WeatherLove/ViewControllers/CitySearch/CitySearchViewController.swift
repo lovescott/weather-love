@@ -70,25 +70,21 @@ class CitySearchViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = viewModel.filterCities[indexPath.row]
+        cell.textLabel?.text = viewModel.filterCities[indexPath.row].name
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         resultsController.isActive = false
-        viewModel.weatherVM.selectedCity = City(id: 22, name: "Dallas")
+        viewModel.weatherVM.selectedCity = viewModel.filterCities[indexPath.row]
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension CitySearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        viewModel.filterCities.removeAll(keepingCapacity: false)
-        
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (viewModel.cities as NSArray).filtered(using: searchPredicate)
-        
-        viewModel.filterCities = array as! [String]
+        let array = viewModel.cities.filter {$0.name.contains(searchController.searchBar.text!)}
+        viewModel.filterCities = array
         tableView.reloadData()
     }
 }

@@ -10,11 +10,19 @@ import Foundation
 
 final class CitySearchViewModel {
     var weatherVM: WeatherViewModelType
-    let cities = ["Dallas", "Richmond", "Houston"]
-    var filterCities = [String]()
+    var cities: [City] = [City]()
+    var filterCities = [City]()
     
     init(weatherVM: WeatherViewModelType) {
         self.weatherVM = weatherVM
+        loadCities()
     }
+    
+    func loadCities() {
+        if let cities = CityResource().retrieveData(){
+            self.cities = cities.flatMap {City.init($0)}
+        }
+    }
+    
     
 }

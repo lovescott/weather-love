@@ -8,11 +8,16 @@
 
 import Foundation
 
-class City {
+struct City {
     let id: Int
     let name: String
-    
-    init(id: Int, name: String) {
+}
+
+extension City{
+    init?(_ json: JSONDictionary){
+        guard let id = json ["_id"] as? Int, let name = json["name"] as? String else {
+            return nil
+        }
         self.id = id
         self.name = name
     }
