@@ -9,6 +9,12 @@
 import UIKit
 
 final class WeatherCoordinator: Coordinator {
+    weak var appCoordinator: AppCoordinator?
+    
+    convenience init(navigationController: UINavigationController?, appCoordinator: AppCoordinator?) {
+        self.init(navigationController: navigationController)
+        self.appCoordinator = appCoordinator
+    }
     
     func start() {
         let viewModel = WeatherViewModel(delegate: self)
@@ -17,7 +23,11 @@ final class WeatherCoordinator: Coordinator {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    //TODO: Build Stop for Deinit
+    //TODO: Check this when app grows to ensure proper child coordinator managment
+    func stop() {
+        _ = navigationController?.popViewController(animated: true)
+        appCoordinator?.weatherCoordinatorCompleted(coordinator: self)
+    }
 }
 
 extension WeatherCoordinator: WeatherViewControllerDelegate {

@@ -16,6 +16,8 @@ struct WeatherCondition {
 }
 
 extension WeatherCondition{
+    // TODO: Refactor  and check for efficiency
+    // I want to acknowledge that this is not the cleanest way to map the object and could use some TLC
     init?(_ dictionary: JSONDictionary) {
        guard let temp = dictionary["main"]?["temp"] as? Double,
         let weather = dictionary["weather"] as? [JSONDictionary],

@@ -8,8 +8,10 @@
 
 import Foundation
 
+// TODO: I ran out of time, but ideally there are some missed opertunities to
+// catch errors and handle failures between network calls and UI
+
 final class WeatherViewModel: WeatherViewModelType {
-    //TODO: Check this in refactor
     private weak var delegate: WeatherViewControllerDelegate?
     var weatherCondition: WeatherCondition?
     var selectedCity: City?{

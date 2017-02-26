@@ -8,6 +8,7 @@
 
 import Foundation
 
+//TODO: Move this to persistent Framework i.e. CoreData
 class User {
     var lastCityId: Int? {
         get {

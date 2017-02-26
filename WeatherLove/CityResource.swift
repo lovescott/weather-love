@@ -9,7 +9,11 @@
 import Foundation
 
 struct CityResource {
-    
+   
+    // This Loads data from data from http://bulk.openweathermap.org/sample/city.list.us.json.gz which is
+    // a list of the current US cites supported by OpenWeatherMap.  I think this would not be production ready but this
+    // would be a good start for a dynamic service.
+    // There are many key points missing like state that make this not ready for primetime
     func retrieveData()-> [JSONDictionary]?   {
         if let path = Bundle.main.path(forResource: "city", ofType: "json")
         {

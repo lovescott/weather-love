@@ -11,8 +11,15 @@ import UIKit
 final class AppCoordinator: Coordinator {
     
     func start() {
-        let coordinator = WeatherCoordinator(navigationController: navigationController)
+        let coordinator = WeatherCoordinator(navigationController: navigationController, appCoordinator:self)
         coordinator.start()
         childCoordinators.append(coordinator)
+    }
+    
+    //TODO: Check with this and make sure child coordinators clean up after themselves
+    func weatherCoordinatorCompleted(coordinator: WeatherCoordinator) {
+        if let index = childCoordinators.index(where: { $0 === coordinator }) {
+            childCoordinators.remove(at: index)
+        }
     }
 }
