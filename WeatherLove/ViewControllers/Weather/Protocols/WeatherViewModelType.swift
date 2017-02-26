@@ -9,8 +9,8 @@
 import Foundation
 
 protocol WeatherViewModelType {
-    //TODO: Refactor ?
     var weatherCondition: WeatherCondition?{ get}
     var selectedCity: City? { get set }
+    var iconData: Data? { get }
     func updateCity()
 }

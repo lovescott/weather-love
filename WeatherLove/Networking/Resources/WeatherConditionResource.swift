@@ -8,11 +8,17 @@
 
 import Foundation
 
+
 struct WeatherConditionResource {
-    static let url = URL(string: Keys.baseWeatherUrl)!
+    let url = URL(string: Keys.baseWeatherUrl)
     
-    static let get = Resource<WeatherCondition>(url: url, parseJSON: { json in
-        guard let dictionary = json as? JSONDictionary else { return nil }
-        return WeatherCondition(dictionary)
-    })
+    func get (for id:Int) -> Resource<WeatherCondition>?{
+        //TODO: This is here because of time...Ideally I would set up query params with normal URL Components
+        let urlString = Keys.baseWeatherUrl.replacingOccurrences(of: "[[id]]", with: String(id))
+        guard let url = URL(string: urlString) else { return nil}
+        return Resource<WeatherCondition>(url: url, parseJSON: { json in
+            guard let dictionary = json as? JSONDictionary else { return nil }
+            return WeatherCondition(dictionary)
+        })
+    }
 }

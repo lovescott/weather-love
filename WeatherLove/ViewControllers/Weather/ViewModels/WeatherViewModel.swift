@@ -15,24 +15,51 @@ final class WeatherViewModel: WeatherViewModelType {
     var selectedCity: City?{
         didSet{
             downloadWeatherCondition()
+            User().lastCityId = selectedCity?.id
+            User().lastCityName = selectedCity?.name
         }
     }
+    var iconData: Data?
     
     init(delegate: WeatherViewControllerDelegate?){
         self.delegate = delegate
         downloadWeatherCondition()
+        checkForLastCitySet()
     }
     
     func updateCity (){
         let cityVm = CitySearchViewModel(weatherVM: self)
         delegate?.changeWeatherCity(viewModel:cityVm)
     }
+    
+    func checkForLastCitySet(){
+        if let id = User().lastCityId, let name = User().lastCityName{
+            selectedCity = City(id: id, name: name)
+        }
+    }
+    
     func downloadWeatherCondition() {
-        Webservice().load(resource: WeatherConditionResource.get){[weak self] result in
-            guard let result = result, let `self` = self else {
-                return
+        if let city = selectedCity, let resource = WeatherConditionResource().get(for: city.id){
+            Webservice().load(resource: resource) {[weak self] result in
+                guard let result = result, let `self` = self else {
+                    return
+                }
+                self.weatherCondition = result
+                DispatchQueue.main.async { [unowned self] in
+                    self.delegate?.updateUI()
+                }
+                self.downloadImage(iconName: result.iconName)
             }
-            self.weatherCondition = result
+        }
+    }
+    
+    func downloadImage(iconName: String) {
+        Webservice().getData(for: iconName) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() { () -> Void in
+                self.iconData = data
+                self.delegate?.loadIcon()
+            }
         }
     }
 }

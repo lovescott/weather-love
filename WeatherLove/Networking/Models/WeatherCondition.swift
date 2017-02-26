@@ -9,12 +9,23 @@
 import Foundation
 
 struct WeatherCondition {
-    var temp: Double
+    var temp: Int?
+    var iconName: String
+    var forecast: String
+    var humidity: Int?
 }
 
 extension WeatherCondition{
     init?(_ dictionary: JSONDictionary) {
-        guard let temp = dictionary["main"]?["temp"] as? Double else { return nil }
-        self.temp = temp
+       guard let temp = dictionary["main"]?["temp"] as? Double,
+        let weather = dictionary["weather"] as? [JSONDictionary],
+        let icon = weather[0]["icon"] as? String,
+        let forecast = weather[0]["description"] as? String,
+        let humidity = dictionary["main"]?["humidity"] as? Double
+        else{ return nil }
+        self.temp = Int(temp)
+        self.iconName = icon
+        self.forecast = forecast
+        self.humidity = Int(humidity)
     }
 }

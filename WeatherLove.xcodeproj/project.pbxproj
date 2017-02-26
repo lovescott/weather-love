@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB13CBC11E62D0CC00537C97 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13CBC01E62D0CC00537C97 /* User.swift */; };
 		EB596C5A1E620FC600E84EAB /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596C591E620FC600E84EAB /* Webservice.swift */; };
 		EB596C5C1E62103900E84EAB /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596C5B1E62103900E84EAB /* Resource.swift */; };
 		EB596C5E1E6213A200E84EAB /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB596C5D1E6213A200E84EAB /* Keys.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB13CBC01E62D0CC00537C97 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Networking/Models/User.swift; sourceTree = "<group>"; };
 		EB596C591E620FC600E84EAB /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Webservice.swift; path = Networking/Webservice.swift; sourceTree = "<group>"; };
 		EB596C5B1E62103900E84EAB /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Networking/Resource.swift; sourceTree = "<group>"; };
 		EB596C5D1E6213A200E84EAB /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = WeatherLove/Keys.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				EBDCB4D51E626D5A003FE163 /* City.swift */,
 				EBAECEA01E6201810005FED5 /* WeatherCondition.swift */,
+				EB13CBC01E62D0CC00537C97 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				EBAECE701E61E5F90005FED5 /* AppDelegate.swift in Sources */,
 				EBDCB4D61E626D5A003FE163 /* City.swift in Sources */,
 				EB596C5A1E620FC600E84EAB /* Webservice.swift in Sources */,
+				EB13CBC11E62D0CC00537C97 /* User.swift in Sources */,
 				EBDCB4D11E62602F003FE163 /* CityCell.swift in Sources */,
 				EBAECE9D1E6200490005FED5 /* WeatherViewModelType.swift in Sources */,
 				EBDCB4D81E626ECE003FE163 /* CitySearchViewModel.swift in Sources */,

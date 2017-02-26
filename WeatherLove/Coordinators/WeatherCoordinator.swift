@@ -28,4 +28,14 @@ extension WeatherCoordinator: WeatherViewControllerDelegate {
         nc.modalPresentationStyle = .overCurrentContext
         rootVc?.present(nc, animated: true, completion: nil)
     }
+    
+    func updateUI (){
+        let rootVc = navigationController?.childViewControllers[0] as? WeatherViewController
+        rootVc?.setupUI()
+    }
+    
+    func loadIcon (){
+        let rootVc = navigationController?.childViewControllers[0] as? WeatherViewController
+        rootVc?.setupIcon()
+    }
 }

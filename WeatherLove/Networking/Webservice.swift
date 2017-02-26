@@ -15,4 +15,14 @@ final class Webservice {
             completion(result)
             }.resume()
     }
+    
+    func getData(for iconName: String, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        let urlString = Keys.baseImageUrl.replacingOccurrences(of: "[[FileName]]", with: iconName)
+        let url = URL(string: urlString)!
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
 }

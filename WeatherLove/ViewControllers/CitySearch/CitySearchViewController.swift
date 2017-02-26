@@ -35,7 +35,7 @@ class CitySearchViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Search for City"
+        self.title = "Enter City Name"
         
         resultsController = UISearchController(searchResultsController: nil)
         resultsController.searchResultsUpdater = self
@@ -75,14 +75,15 @@ class CitySearchViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        resultsController.isActive = false
         viewModel.weatherVM.selectedCity = viewModel.filterCities[indexPath.row]
+        resultsController.isActive = false
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension CitySearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        viewModel.filterCities.removeAll(keepingCapacity: false)
         let array = viewModel.cities.filter {$0.name.contains(searchController.searchBar.text!)}
         viewModel.filterCities = array
         tableView.reloadData()
